@@ -1,0 +1,12 @@
+{
+  "name": "gridsevenai-prod-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Performance tooling for Grid Seven AI static site",
+  "scripts": {
+    "images:optimize": "node scripts/optimize-images.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  }
+}

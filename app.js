@@ -299,17 +299,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const heroSection = document.querySelector(".hero");
   const heroText = document.getElementById("heroText");
 
-  const images = ["src/images/img1.jpg", "src/images/img2.jpg", "src/images/img5.jpg"];
+  const images = ["src/images/img1.webp", "src/images/img2.webp", "src/images/img5.webp"];
   const texts = [
     `<h1>Is your organization prepared to unlock the next level of growth?</h1>`,
     `<h1>Accelerating Business Growth with Artificial Intelligence</h1>`,
     `<h1>Empower Your Organization and accelerate business growth with AI-Driven OKRs</h1>`
   ];
 
-  images.forEach(src => {
+  function preloadImage(src) {
     const img = new Image();
     img.src = src;
-  });
+  }
+
+  function preloadRemainingHeroImages() {
+    images.slice(1).forEach(preloadImage);
+  }
 
   let currentImage = 0;
 
@@ -335,8 +339,65 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 250);
   }
 
+  let heroIntervalId = null;
+
+  function startHeroRotation() {
+    if (heroIntervalId !== null) return;
+    heroIntervalId = setInterval(changeHeroContent, 5000);
+  }
+
+  function stopHeroRotation() {
+    if (heroIntervalId === null) return;
+    clearInterval(heroIntervalId);
+    heroIntervalId = null;
+  }
+
+  let heroRotationEnabled = false;
+
+  function enableHeroRotation() {
+    if (heroRotationEnabled) return;
+
+    heroRotationEnabled = true;
+    if (document.visibilityState === "visible") {
+      startHeroRotation();
+    }
+  }
+
+  function registerHeroRotationTrigger() {
+    const trigger = () => {
+      enableHeroRotation();
+      window.removeEventListener("pointerdown", trigger, true);
+      window.removeEventListener("keydown", trigger, true);
+      window.removeEventListener("touchstart", trigger, true);
+      window.removeEventListener("wheel", trigger, true);
+    };
+
+    window.addEventListener("pointerdown", trigger, { once: true, capture: true, passive: true });
+    window.addEventListener("keydown", trigger, { once: true, capture: true });
+    window.addEventListener("touchstart", trigger, { once: true, capture: true, passive: true });
+    window.addEventListener("wheel", trigger, { once: true, capture: true, passive: true });
+  }
+
   setHeroContent(currentImage);
-  setInterval(changeHeroContent, 5000);
+  registerHeroRotationTrigger();
+
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "visible" && heroRotationEnabled) {
+      startHeroRotation();
+      return;
+    }
+
+    stopHeroRotation();
+  });
+
+  window.addEventListener("load", function () {
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(preloadRemainingHeroImages, { timeout: 2000 });
+      return;
+    }
+
+    setTimeout(preloadRemainingHeroImages, 1200);
+  });
 
   const chatLauncher = document.getElementById("chat-launcher");
   const chatBox = document.getElementById("chatBox");
@@ -374,7 +435,7 @@ document.addEventListener("DOMContentLoaded", function () {
 const modalData = {
 
   'okr-strategy': {
-    img: 'src/extra_img/AIPoweredOKRManagement.jpg',
+    img: 'src/extra_img/AIPoweredOKRManagement.webp',
     bgColor: '#dbeafe',
     fallback: '📊',
     title: 'AI Powered OKR Management',
@@ -406,7 +467,7 @@ const modalData = {
   },
 
   'okr-coaching': {
-    img: 'src/extra_img/BuildingLeadersForTomorrow.jpg',
+    img: 'src/extra_img/BuildingLeadersForTomorrow.webp',
     bgColor: '#dcfce7',
     fallback: '🎓',
     title: 'Building Leaders For Tomorrow\'s Challenges',
@@ -450,7 +511,7 @@ const modalData = {
   },
 
   'okr-implementation': {
-    img: 'src/extra_img/BusinessGrowthwithAI.jpg',
+    img: 'src/extra_img/BusinessGrowthwithAI.webp',
     bgColor: '#d1fae5',
     fallback: '📈',
     title: 'Strategic Business Growth with AI',
@@ -479,7 +540,7 @@ const modalData = {
   },
 
   'ai-dashboards': {
-    img: 'src/extra_img/SoftwareTestingwithAI.jpg',
+    img: 'src/extra_img/SoftwareTestingwithAI.webp',
     bgColor: '#fef9c3',
     fallback: '🧪',
     title: 'Next Gen Software Testing with AI',
@@ -511,7 +572,7 @@ const modalData = {
   },
 
   'caas': {
-    img: 'src/extra_img/CapacityAugmentation.jpg',
+    img: 'src/extra_img/CapacityAugmentation.webp',
     bgColor: '#fce7f3',
     fallback: '🔧',
     title: 'Capacity Augmentation As a Service (CAAS)',
@@ -545,7 +606,7 @@ const modalData = {
   },
 
   'future-leaders': {
-    img: 'src/extra_img/ProgramsForUniversities.jpg',
+    img: 'src/extra_img/ProgramsForUniversities.webp',
     bgColor: '#ede9fe',
     fallback: '🏫',
     title: 'Future Leaders Programs For Universities',
@@ -576,7 +637,7 @@ const modalData = {
   },
 
   'ml-career': {
-    img: 'src/images/img1.jpg',
+    img: 'src/images/img1.webp',
     bgColor: '#dbeafe',
     fallback: 'AI',
     title: 'Machine Learning Programmer',
@@ -619,7 +680,7 @@ const modalData = {
   },
 
   'okr-career': {
-    img: 'src/images/img2.jpg',
+    img: 'src/images/img2.webp',
     bgColor: '#dcfce7',
     fallback: 'OKR',
     title: 'Business Performance Manager',
@@ -670,7 +731,7 @@ const modalData = {
   },
 
   'gaming': {
-    img: 'src/extra_img/GamingIndustry.jpg',
+    img: 'src/extra_img/GamingIndustry.webp',
     bgColor: '#dcfce7',
     fallback: '🎮',
     title: 'Gaming Industry with AI',
@@ -706,7 +767,7 @@ const modalData = {
   },
 
   'fintech': {
-    img: 'src/extra_img/Fintech.jpg',
+    img: 'src/extra_img/Fintech.webp',
     bgColor: '#dbeafe',
     fallback: '💳',
     title: 'FinTech with AI',
@@ -730,7 +791,7 @@ const modalData = {
   },
 
   'insurtech': {
-    img: 'src/extra_img/Insurance.jpg',
+    img: 'src/extra_img/Insurance.webp',
     bgColor: '#fee2e2',
     fallback: '🛡️',
     title: 'InsurTech with AI',
@@ -757,7 +818,7 @@ const modalData = {
   },
 
   'healthtech': {
-    img: 'src/extra_img/HealthTech.jpg',
+    img: 'src/extra_img/HealthTech.webp',
     bgColor: '#fce7f3',
     fallback: '🏥',
     title: 'HealthTech / MedTech with AI',
@@ -777,7 +838,7 @@ const modalData = {
   },
 
   'edtech': {
-    img: 'src/extra_img/EdTechWithAI.jpg',
+    img: 'src/extra_img/EdTechWithAI.webp',
     bgColor: '#d1fae5',
     fallback: '📚',
     title: 'EdTech with AI',
