@@ -1,0 +1,564 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grid Seven AI</title>
+  <link rel="stylesheet" href="style4.css" />
+</head>
+
+<body>
+
+  <header>
+    <div class="container nav-container">
+      <div class="logo">
+        <a href="#home">
+          <img src="src/images/grid7.png" alt="Grid Seven AI Logo" />
+        </a>
+      </div>
+      <nav>
+        <div class="menu-toggle" id="menuToggle">&#9776;</div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Our Services</a></li>
+          <li><a href="#industries">Industries</a></li>
+          <li><a href="#case-studies">Case Study</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <section class="hero" id="home">
+    <div class="overlay"></div>
+    <div class="hero-content" id="heroText">
+      <h1>Accelerating Business Growth with Artificial Intelligence</h1>
+      <br>
+      <h3>Shaping the future with intelligent technologies</h3>
+    </div>
+  </section>
+
+
+  <section id="services">
+    <div class="container">
+      <h2 class="section-heading-center">Our Services</h2>
+
+
+      <div class="card-grid-3">
+        <div class="info-card" onclick="openModal('okr-strategy')">
+          <div class="info-card-img" style="background-color:#dbeafe;">
+            <img src="src/images/img1.jpg" alt="AI Powered OKR Management" />
+
+          </div>
+          <div class="info-card-body">
+            <h3>AI Powered OKR Management</h3>
+          </div>
+        </div>
+
+        <div class="info-card" onclick="openModal('future-leaders')">
+          <div class="info-card-img" style="background-color:#ede9fe;">
+            <img src="src/svc_img/uni.png" alt="Gaming" />
+
+          </div>
+          <div class="info-card-body">
+            <h3>Future Leaders Programs For Universities</h3>
+          </div>
+        </div>
+
+        <div class="info-card" onclick="openModal('ai-dashboards')">
+          <div class="info-card-img" style="background-color:#fef9c3;">
+            <img src="src/svc_img/nextGen.png" alt="Gaming" />
+          </div>
+          <div class="info-card-body">
+            <h3>Next Gen Software Testing with AI</h3>
+          </div>
+        </div>
+
+        <div class="info-card" onclick="openModal('okr-coaching')">
+          <div class="info-card-img" style="background-color:#dcfce7;">
+            <img src="src/svc_img/futureLeaders.png" alt="Gaming" />
+
+          </div>
+          <div class="info-card-body">
+            <h3>Building Leaders For Tomorrow's Challenges</h3>
+          </div>
+        </div>
+
+        <div class="info-card" onclick="openModal('okr-implementation')">
+          <div class="info-card-img" style="background-color:#d1fae5;">
+            <img src="src/svc_img/StrategicBusiness Growth.png" alt="Gaming" />
+
+          </div>
+          <div class="info-card-body">
+            <h3>Strategic Business Growth with AI</h3>
+          </div>
+        </div>
+
+        <div class="info-card" onclick="openModal('caas')">
+          <div class="info-card-img" style="background-color:#fce7f3;">
+            <img src="src/svc_img/caas.png" alt="Gaming" />
+
+          </div>
+          <div class="info-card-body">
+            <h3>Capacity Augmentation As a Service (CAAS)</h3>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="industries">
+    <div class="container">
+      <h2 class="section-heading-center">Industries</h2>
+
+
+      <div class="card-grid-3">
+        <div class="info-card" onclick="openModal('gaming')">
+          <div class="info-card-img" style="background-color:#dcfce7;">
+            <img src="src/industries_img/Pic - Gaming Industry.png" alt="Gaming" />
+
+          </div>
+          <div class="info-card-body">
+            <h3>Gaming Industry with AI</h3>
+          </div>
+        </div>
+
+        <div class="info-card" onclick="openModal('fintech')">
+          <div class="info-card-img" style="background-color:#dbeafe;">
+            <img src="src/industries_img/Pic - FinTech Industry.png" alt="FinTech" />
+
+
+          </div>
+          <div class="info-card-body">
+            <h3>FinTech with AI</h3>
+          </div>
+        </div>
+
+        <div class="info-card" onclick="openModal('insurtech')">
+          <div class="info-card-img" style="background-color:#fee2e2;">
+            <img src="src/industries_img/Pic - Insurance Industry.png" alt="Insurance" />
+
+
+          </div>
+          <div class="info-card-body">
+            <h3>InsurTech with AI</h3>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="card-grid-2-center">
+        <div class="info-card" onclick="openModal('healthtech')">
+          <div class="info-card-img" style="background-color:#fce7f3;">
+            <img src="src/industries_img/Pic - HealthCare.png" alt="HealthCare" />
+
+          </div>
+          <div class="info-card-body">
+            <h3>HealthTech / MedTech with AI</h3>
+          </div>
+        </div>
+
+        <div class="info-card" onclick="openModal('edtech')">
+          <div class="info-card-img" style="background-color:#d1fae5;">
+            <img src="src/industries_img/Pic - EduTech Industry.png" alt="EdTech" />
+
+
+          </div>
+          <div class="info-card-body">
+            <h3>EdTech with AI</h3>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" id="case-studies">
+    <div class="container">
+      <h2 class="section-heading-center">Case Study</h2>
+      <div class="cs-card">
+        <div class="cs-body">
+
+          <div class="cs-section">
+            <div class="section-label">
+              <div class="section-icon icon-context">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <rect x="3" y="3" width="18" height="18" rx="3" />
+                  <path d="M8 12h8M8 8h8M8 16h5" />
+                </svg>
+              </div>
+              <h4>Business Context</h4>
+            </div>
+            <div class="cs-panel">
+              <p class="cs-panel-text">
+                The organization was scaling rapidly, but leadership identified inconsistencies in execution across teams. Strategy communication was fragmented, employees were unclear on priorities, and multiple projects ran without measurable success indicators.
+              </p>
+            </div>
+          </div>
+
+          <div class="cs-divider"></div>
+
+          <div class="cs-section">
+            <div class="section-label">
+              <div class="section-icon icon-challenge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                  <line x1="12" y1="9" x2="12" y2="13" />
+                  <line x1="12" y1="17" x2="12.01" y2="17" />
+                </svg>
+              </div>
+              <h4>Business Challenges</h4>
+            </div>
+            <div class="cs-panel">
+              <div class="cs-grid-list">
+                <div class="cs-grid-item">
+                  <span>Lack of alignment between leadership strategy and team execution, and confusion around priorities</span>
+                </div>
+                <div class="cs-grid-item">
+                  <span>Decisions made based on intuition instead of measurable goals</span>
+                </div>
+                <div class="cs-grid-item">
+                  <span>Delayed projects due to unclear ownership and accountability</span>
+                </div>
+                <div class="cs-grid-item">
+                  <span>No structured performance governance</span>
+                </div>
+                <div class="cs-grid-item">
+                  <span>Difficulty measuring impact and tracking progress</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-divider"></div>
+
+          <div class="cs-section">
+            <div class="section-label">
+              <div class="section-icon icon-solution">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              <h4>Solution Approach</h4>
+            </div>
+            <div class="cs-panel">
+              <div class="cs-grid-list">
+                <div class="cs-grid-item cs-grid-item-structured">
+                  <div class="cs-item-text">
+                    <strong>AI-Enabled OKR Platform</strong>
+                    <p>Configured Grid Seven AI's tool Objecto to define and track OKRs, predict at-risk key results, identify bottlenecks, suggest priority realignment, and highlight low-performing areas.</p>
+                  </div>
+                </div>
+                <div class="cs-grid-item cs-grid-item-structured">
+                  <div class="cs-item-text">
+                    <strong>Leadership Alignment Workshops</strong>
+                    <p>Conducted strategic workshops to translate high-level goals into measurable Objectives &amp; Key Results.</p>
+                  </div>
+                </div>
+                <div class="cs-grid-item cs-grid-item-structured">
+                  <div class="cs-item-text">
+                    <strong>Cross-Functional OKR Design</strong>
+                    <p>Created department-level and team-level OKRs aligned to company priorities.</p>
+                  </div>
+                </div>
+                <div class="cs-grid-item cs-grid-item-structured">
+                  <div class="cs-item-text">
+                    <strong>Governance Cadence</strong>
+                    <p>Established weekly and monthly review cycles with transparent dashboards.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-divider"></div>
+
+          <div class="cs-section">
+            <div class="section-label">
+              <div class="section-icon icon-outcomes">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+              </div>
+              <h4>Outcomes &amp; Impact</h4>
+            </div>
+            <div class="cs-panel">
+              <div class="cs-grid-list cs-outcomes-list">
+                <div class="cs-grid-item cs-grid-item-structured">
+                  <div class="cs-item-text"><strong>Clear Organizational Focus</strong>
+                    <p>Everyone understands top priorities and what truly matters.</p>
+                  </div>
+                </div>
+                <div class="cs-grid-item cs-grid-item-structured">
+                  <div class="cs-item-text"><strong>Better Goal Alignment</strong>
+                    <p>Teams align work with company objectives, reducing silos.</p>
+                  </div>
+                </div>
+                <div class="cs-grid-item cs-grid-item-structured">
+                  <div class="cs-item-text"><strong>Improved Transparency</strong>
+                    <p>Goals and progress are visible across the organization.</p>
+                  </div>
+                </div>
+                <div class="cs-grid-item cs-grid-item-structured">
+                  <div class="cs-item-text"><strong>Higher Employee Engagement</strong>
+                    <p>People feel connected to meaningful goals.</p>
+                  </div>
+                </div>
+                <div class="cs-grid-item cs-grid-item-structured">
+                  <div class="cs-item-text"><strong>Faster Decision-Making</strong>
+                    <p>Priorities are clear, reducing confusion and delays.</p>
+                  </div>
+                </div>
+                <div class="cs-grid-item cs-grid-item-structured">
+                  <div class="cs-item-text"><strong>Data-Driven Performance Tracking</strong>
+                    <p>Progress measured objectively through key results.</p>
+                  </div>
+                </div>
+                <div class="cs-grid-item cs-grid-item-structured">
+                  <div class="cs-item-text"><strong>Increased Productivity</strong>
+                    <p>Teams focus on high-impact work instead of routine tasks.</p>
+                  </div>
+                </div>
+                <div class="cs-grid-item cs-grid-item-structured">
+                  <div class="cs-item-text"><strong>Enhanced Performance Culture</strong>
+                    <p>Focus has shifted from effort to outcomes.</p>
+                  </div>
+                </div>
+                <div class="cs-grid-item cs-grid-item-structured">
+                  <div class="cs-item-text"><strong>Reduced Misalignment</strong>
+                    <p>Redundant and conflicting work has been reduced.</p>
+                  </div>
+                </div>
+                <div class="cs-grid-item cs-grid-item-structured">
+                  <div class="cs-item-text"><strong>Continuous Improvement</strong>
+                    <p>Regular reviews foster learning and iteration.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="cs-footer">
+          <p>Ready to transform your organization?</p>
+          <a href="#contact" class="cs-cta-btn">Contact Us →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="careers" class="careers-page">
+
+
+    <div class="careers-top">
+      <div class="careers-top-left">
+        <h2 class="careers-title">Open Positions</h2>
+      </div>
+
+    </div>
+
+
+    <div class="careers-split">
+
+
+      <div class="careers-right">
+
+        <div class="role-card cr-fade-up" onclick="openModal('ml-career')">
+          <div class="role-top">
+            <div class="role-left-grp">
+              <div class="role-icon blue">AI/ML</div>
+              <div>
+                <div class="role-name">Machine Learning Programmer</div>
+                <div class="role-dept">Engineering &nbsp;&middot;&nbsp; Remote</div>
+              </div>
+            </div>
+            <div class="role-arrow">
+              <svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+          </div>
+          <p class="role-desc">Design, train, and deploy ML models that solve real business problems - from
+            classification and NLP to recommendation systems and scalable production pipelines.</p>
+          <div class="role-footer">
+            <div class="role-tags">
+              <span class="cr-tag skill-blue">Python</span>
+              <span class="cr-tag skill-blue">TensorFlow / PyTorch</span>
+              <span class="cr-tag neutral">Full-time / Consulting</span>
+            </div>
+            <span class="exp-badge">2-6 yrs exp</span>
+          </div>
+        </div>
+
+
+        <div class="role-card cr-fade-up" onclick="openModal('okr-career')">
+          <div class="role-top">
+            <div class="role-left-grp">
+              <div class="role-icon green">OKR</div>
+              <div>
+                <div class="role-name">Business Performance Manager</div>
+                <div class="role-dept">Strategy &amp; Consulting &nbsp;&middot;&nbsp; Remote</div>
+              </div>
+            </div>
+            <div class="role-arrow">
+              <svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+          </div>
+          <p class="role-desc">Lead OKR framework design and implementation for clients, run strategy workshops, and
+            translate executive goals into measurable, accountable outcomes.</p>
+          <div class="role-footer">
+            <div class="role-tags">
+              <span class="cr-tag skill-green">OKR Frameworks</span>
+              <span class="cr-tag skill-green">MBA preferred</span>
+              <span class="cr-tag neutral">Full-time / Consulting</span>
+            </div>
+            <span class="exp-badge">2-7 yrs exp</span>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </section>
+
+
+
+
+
+
+  <section class="section" id="about">
+    <div class="container">
+
+      <div class="about-intro">
+        <h2 class="about-heading">About Our Leadership</h2>
+
+      </div>
+
+      <div class="leaders-list">
+
+        <div class="leader-card-wide">
+          <div class="lcw-photo lcw-bg1">
+            <img src="src/images/sanjay_img3.jpg" alt="Sanjay Sawhney" />
+          </div>
+          <div class="lcw-body">
+            <h3 class="lcw-name">Sanjay Sawhney</h3>
+            <p class="lcw-title">Founder &amp; Chief Executive Officer</p>
+            <p class="lcw-bio">Sanjay is a seasoned IT leader with over 25 years of experience in shaping global technology strategies. Certified by Indian School of Business (ISB) in "Leadership with AI", he brings a unique blend of executive leadership and deep technical expertise across Artificial Intelligence solutions, quality assurance, process automation and enterprise IT operations.</p>
+            <p class="lcw-bio">Over the years, Sanjay has led large-scale technology initiatives, playing a critical role in aligning technology with business goals in quality assurance and process automation in complex enterprise environments throughout his tenure across multiple organizations in India and USA.</p>
+            <p class="lcw-bio">With a strong foundation in operations optimization, quality frameworks and digital transformation, Sanjay established Grid Seven AI LLP to help organizations accelerate growth, enhance operational efficiency, and streamline processes by integrating AI-driven solutions that transform how businesses operate.</p>
+          </div>
+        </div>
+
+        <div class="leader-card-wide">
+          <div class="lcw-photo lcw-bg2">
+            <img src="src/images/NihitBhargava.jpg" alt="Nihit Bhargava" />
+          </div>
+          <div class="lcw-body">
+            <h3 class="lcw-name">Nihit Bhargava</h3>
+            <p class="lcw-title">Chief Commercial Officer</p>
+            <p class="lcw-bio">Nihit Bhargava is a transformation and change management leader with experience in aligning technology, governance, and business strategy. With leadership roles at Meta (Facebook), Deutsche Bank, and Farragut Systems, he has led global programs across privacy, risk, AI enablement, and operational transformation.</p>
+            <p class="lcw-bio">Nihit has driven initiatives in product governance, third-party risk, regulatory compliance, and AI-driven automation, working closely with engineering and data teams to build scalable controls and intelligent reporting frameworks that reduce manual effort and enhance transparency.</p>
+            <p class="lcw-bio">He specializes in responsible AI adoption, model risk management, and workflow modernization using data-driven insights.</p>
+            <p class="lcw-bio">Nihit holds an MBA from the University of North Carolina's Kenan-Flagler Business School and is passionate about applying AI to create sustainable enterprise impact.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section class="contact-section" id="contact">
+    <div class="contact-container">
+      <div class="contact-image">
+        <img src="src/images/contact-img2.webp" alt="Contact Illustration" />
+      </div>
+      <div class="contact-content">
+        <h2 style="color:black">Contact Us</h2>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3 class="card-title">India Office <br> Development Center</h3>
+            <p><strong>Address:</strong><br>
+              Regus, Level 16, World Trade Tower, Sector-16,<br>
+              Noida, UP-201301, India
+            </p>
+            <p>+91-9818324773</p>
+            <p>connect@gridsevenai.com</p>
+          </div>
+          <div class="contact-card">
+            <h3 class="card-title">Business Development Partner - USA</h3>
+            <p><strong>Address:</strong><br>
+              Grid Seven AI LLC<br>
+              30 W 63rd Street, 11F<br>
+              New York, NY 10023, USA
+            </p>
+            <p>+1 (917) 902-0007</p>
+            <p>nihit@gridsevenai.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Grid Seven AI LLP. All rights reserved.</p>
+  </footer>
+
+
+  <div class="chat-float" id="chat-launcher" title="Chat with us">
+    <img src="src/images/message.png" alt="Chat Icon" />
+  </div>
+
+  <div class="chat-popup" id="chatBox">
+    <div class="chat-header">
+      <span>Contact Us</span>
+      <button id="chatClose">&times;</button>
+    </div>
+    <form id="chatForm">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+      <input type="tel" id="mobile" placeholder="Your Mobile Number" required />
+      <textarea id="message" rows="4" placeholder="Type your message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+
+  <div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+    <div class="modal-box" id="modalBox">
+      <div class="modal-content-wrap">
+        <div class="modal-header-row">
+          <div class="modal-heading-group">
+            <h2 id="modalTitle"></h2>
+            <p class="modal-summary" id="modalSummary"></p>
+          </div>
+          <button class="modal-close-btn" onclick="closeModal()" aria-label="Close">&times;</button>
+        </div>
+        <div class="modal-img-wrap" id="modalImgWrap">
+          <img id="modalImg" src="" alt="" />
+          <div class="modal-img-fallback" id="modalImgFallback"></div>
+        </div>
+        <div class="modal-body-content" id="modalBody"></div>
+        <div class="modal-footer-row">
+          <button class="modal-btn-secondary" onclick="closeModal()">Back</button>
+          <a href="#home" class="modal-btn-primary" onclick="closeModal()">Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
