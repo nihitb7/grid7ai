@@ -13,6 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
   let scrollDelta = 0;
   let scrollFrame = null;
   let momentumFrame = null;
+  const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const hasCoarsePointer = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
+  const isTouchLikeDevice = hasCoarsePointer || navigator.maxTouchPoints > 0;
+  const useLockedScrolling = !isTouchLikeDevice && !prefersReducedMotion;
 
   function getHeaderOffset() {
     return header ? header.offsetHeight : 0;
@@ -72,6 +76,17 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!bounds) return;
 
     window.scrollTo(0, bounds.top);
+  }
+
+  function scrollToSection(section, smooth = true) {
+    if (useLockedScrolling) {
+      lockToSection(section);
+      return;
+    }
+
+    const headerOffset = getHeaderOffset();
+    const sectionTop = section.getBoundingClientRect().top + window.scrollY - headerOffset;
+    window.scrollTo({ top: Math.max(0, sectionTop), behavior: smooth ? "smooth" : "auto" });
   }
 
   function requestLockedScroll(deltaY) {
@@ -183,7 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!targetSection) return;
 
         e.preventDefault();
-        lockToSection(targetSection);
+        scrollToSection(targetSection);
       });
     });
   }
@@ -195,7 +210,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!targetSection) return;
 
     e.preventDefault();
-    lockToSection(targetSection);
+    scrollToSection(targetSection);
   });
 
   document.addEventListener("click", function (e) {
@@ -209,7 +224,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!targetSection) return;
 
     e.preventDefault();
-    lockToSection(targetSection);
+    scrollToSection(targetSection);
   });
 
   document.addEventListener("wheel", function (e) {
@@ -294,7 +309,14 @@ document.addEventListener("DOMContentLoaded", function () {
     requestScrollClamp();
   });
 
-  lockInitialSection();
+  if (useLockedScrolling) {
+    lockInitialSection();
+  } else if (window.location.hash) {
+    const hashSection = document.querySelector(window.location.hash);
+    if (hashSection) {
+      scrollToSection(hashSection, false);
+    }
+  }
 
   const heroSection = document.querySelector(".hero");
   const heroText = document.getElementById("heroText");
