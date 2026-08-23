@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Grid Seven AI helps organizations accelerate growth with AI-powered OKR management, strategic consulting, and industry-focused transformation solutions." />
+  <meta name="description" content="Grid Seven AI helps organizations run an AI Use Case Assessment, execute Workflow Automation, and adopt Objecto, our AI-powered OKR platform for alignment, focus, and execution." />
   <title>Grid Seven AI</title>
   <link rel="icon" type="image/webp" href="src/images/grid7.webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,10 +29,9 @@
         <div class="menu-toggle" id="menuToggle">&#9776;</div>
         <ul class="nav-links" id="navLinks">
           <li><a href="#home">Home</a></li>
-          <li><a href="#services">Our Services</a></li>
-          <li><a href="#industries">Industries</a></li>
-          <li><a href="#case-studies">Case Study</a></li>
-          <li><a href="#careers">Careers</a></li>
+          <li><a href="#objecto" class="nav-highlight">Objecto &mdash; AI OKRs</a></li>
+          <li><a href="#assessment">AI Use Case Assessment</a></li>
+          <li><a href="#automation">Workflow Automation</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact Us</a></li>
         </ul>
@@ -44,82 +43,224 @@
   <section class="hero" id="home">
     <div class="overlay"></div>
     <div class="hero-content" id="heroText">
-      <h1>Accelerating Business Growth with Artificial Intelligence</h1>
+      <h1>Struggling with execution during organizational transformation?</h1>
       <br>
-      <h3>Shaping the future with intelligent technologies</h3>
+      <h3>You're not alone. We help you find the right AI use cases, automate the workflows that matter, and keep execution visible with Objecto.</h3>
+      <div class="hero-cta-row">
+        <a href="#objecto" class="btn-hero-primary">See How Objecto Works</a>
+        <a href="#assessment" class="btn-hero-secondary">AI Use Case Assessment</a>
+        <a href="#automation" class="btn-hero-secondary">Workflow Automation</a>
+      </div>
     </div>
   </section>
 
+  <div class="trust-strip">
+    <div class="container">
+      <p class="trust-strip-text">Built by operators from <strong>Meta</strong>, <strong>Deutsche Bank</strong>, and <strong>25+ years</strong> of enterprise technology leadership &mdash; <a href="#about">meet the team →</a></p>
+    </div>
+  </div>
 
   <section id="services">
     <div class="container">
-      <h2 class="section-heading-center">Our Services</h2>
+      <h2 class="section-heading-center">What We Do</h2>
 
-
-      <div class="card-grid-3">
-        <div class="info-card" onclick="openModal('okr-strategy')">
-          <div class="info-card-img" style="background-color:#dbeafe;">
-            <img src="src/images/img1.webp" alt="AI Powered OKR Management" width="640" height="360" loading="lazy" decoding="async" />
-
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon-badge">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
           </div>
-          <div class="info-card-body">
-            <h3>AI Powered OKR Management</h3>
-          </div>
+          <h3>Objecto</h3>
+          <p class="feature-tagline">AI-powered OKR platform for alignment, focus, and execution &mdash; cascaded from leadership to every level.</p>
+          <a href="#objecto" class="feature-link">See How It Works →</a>
         </div>
 
+        <div class="feature-card">
+          <div class="feature-icon-badge">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5" /><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none" />
+            </svg>
+          </div>
+          <h3>AI Use Case Assessment</h3>
+          <p class="feature-tagline">A fixed-fee, time-boxed sprint to find and prioritize the AI use cases actually worth pursuing.</p>
+          <a href="#assessment" class="feature-link">Learn More →</a>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-badge">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4v6h6M20 20v-6h-6" /><path d="M20 8a8 8 0 00-14.5-3M4 16a8 8 0 0014.5 3" />
+            </svg>
+          </div>
+          <h3>Workflow Automation</h3>
+          <p class="feature-tagline">Hands-on automation of the specific workflows an assessment identifies, scoped and staffed as needed.</p>
+          <a href="#automation" class="feature-link">Learn More →</a>
+        </div>
+      </div>
+
+      <p style="text-align:center; color:#6b7280; font-size:0.85rem; margin:36px 0 16px; text-transform:uppercase; letter-spacing:0.04em;">Other Services &mdash; Custom Engagements Available</p>
+      <div class="card-grid-3" style="opacity:0.85;">
         <div class="info-card" onclick="openModal('future-leaders')">
           <div class="info-card-img" style="background-color:#ede9fe;">
-            <img src="src/svc_img/uni.webp" alt="Gaming" width="640" height="360" loading="lazy" decoding="async" />
-
+            <img src="src/svc_img/uni.webp" alt="Leadership Development Programs" width="640" height="360" loading="lazy" decoding="async" />
           </div>
           <div class="info-card-body">
-            <h3>Future Leaders Programs For Universities</h3>
+            <h3>Leadership Development Programs</h3>
           </div>
         </div>
 
         <div class="info-card" onclick="openModal('ai-dashboards')">
           <div class="info-card-img" style="background-color:#fef9c3;">
-            <img src="src/svc_img/nextGen.webp" alt="Gaming" width="640" height="360" loading="lazy" decoding="async" />
+            <img src="src/svc_img/nextGen.webp" alt="Next Gen Software Testing with AI" width="640" height="360" loading="lazy" decoding="async" />
           </div>
           <div class="info-card-body">
             <h3>Next Gen Software Testing with AI</h3>
           </div>
         </div>
 
-        <div class="info-card" onclick="openModal('okr-coaching')">
-          <div class="info-card-img" style="background-color:#dcfce7;">
-            <img src="src/svc_img/futureLeaders.webp" alt="Gaming" width="640" height="360" loading="lazy" decoding="async" />
-
-          </div>
-          <div class="info-card-body">
-            <h3>Building Leaders For Tomorrow's Challenges</h3>
-          </div>
-        </div>
-
-        <div class="info-card" onclick="openModal('okr-implementation')">
-          <div class="info-card-img" style="background-color:#d1fae5;">
-            <img src="src/svc_img/StrategicBusiness Growth.webp" alt="Gaming" width="640" height="360" loading="lazy" decoding="async" />
-
-          </div>
-          <div class="info-card-body">
-            <h3>Strategic Business Growth with AI</h3>
-          </div>
-        </div>
-
         <div class="info-card" onclick="openModal('caas')">
           <div class="info-card-img" style="background-color:#fce7f3;">
-            <img src="src/svc_img/caas.webp" alt="Gaming" width="640" height="360" loading="lazy" decoding="async" />
-
+            <img src="src/svc_img/caas.webp" alt="Capacity Augmentation As a Service" width="640" height="360" loading="lazy" decoding="async" />
           </div>
           <div class="info-card-body">
             <h3>Capacity Augmentation As a Service (CAAS)</h3>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
+
+  <section class="section" id="objecto" style="background:#ffffff;">
+    <div class="container">
+      <h2 class="section-heading-center">Objecto &mdash; AI-Powered OKR Platform</h2>
+      <p style="text-align:center; max-width:760px; margin:0 auto 12px; color:#4b5563; font-size:1.05rem; line-height:1.6;">
+        Objecto is an AI-powered platform built on OKR methodology to strengthen Alignment, Focus, Accountability, and Execution across your organization &mdash; cascading objectives from leadership down to every level, so each person can see exactly how their work drives company goals.
+      </p>
+      <p style="text-align:center; color:#6b7280; font-size:0.92rem; max-width:700px; margin:0 auto 32px;">
+        Today, many organizations struggle not because of a lack of talent, but because of fragmented execution, unclear priorities, and weak alignment. Objecto helps close that gap.
+      </p>
+
+      <div class="objecto-screens">
+        <div>
+          <div class="screen-frame">
+            <img src="src/objecto_img/objecto-analytics.jpg" alt="Objecto Analytics screen showing quarterly OKR completion tracking" loading="lazy" decoding="async" />
+          </div>
+          <p class="screen-caption">Track objective completion over time, with insights logged at each check-in.</p>
+        </div>
+        <div>
+          <div class="screen-frame">
+            <img src="src/objecto_img/objecto-org-graph.jpg" alt="Objecto Organizational Graph showing cascaded OKRs across leadership levels" loading="lazy" decoding="async" />
+          </div>
+          <p class="screen-caption">See how objectives cascade and align across every level of the organization.</p>
+        </div>
+      </div>
+
+      <div class="card-grid-3">
+        <div class="info-card" style="cursor:default; text-align:center; padding-top:8px;">
+          <div class="info-card-body">
+            <div class="icon-badge-sm">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                <path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+              </svg>
+            </div>
+            <h3>Alignment</h3>
+            <p style="margin-top:8px; font-size:0.92rem; color:#4b5563;">Cascade objectives top-down and keep team goals aligned with organizational priorities.</p>
+          </div>
+        </div>
+        <div class="info-card" style="cursor:default; text-align:center; padding-top:8px;">
+          <div class="info-card-body">
+            <div class="icon-badge-sm">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                <circle cx="12" cy="12" r="3" /><circle cx="12" cy="12" r="8" />
+              </svg>
+            </div>
+            <h3>Focus</h3>
+            <p style="margin-top:8px; font-size:0.92rem; color:#4b5563;">Weekly reviews keep every person connected to their priorities and commitments.</p>
+          </div>
+        </div>
+        <div class="info-card" style="cursor:default; text-align:center; padding-top:8px;">
+          <div class="info-card-body">
+            <div class="icon-badge-sm">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                <path d="M20 6L9 17l-5-5" />
+              </svg>
+            </div>
+            <h3>Accountability</h3>
+            <p style="margin-top:8px; font-size:0.92rem; color:#4b5563;">Clear ownership at every level, with progress and commitment visible across teams.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="tech-note" style="text-align:center; max-width:700px; margin-left:auto; margin-right:auto;">
+        Objecto also applies time-series forecasting techniques (including ARIMA) to a team's own progress history &mdash; helping project whether an objective is on pace to hit its target, not just where it stands today. This capability is still maturing as we validate it against real customer data.
+      </p>
+
+      <div style="text-align:center; margin-top:28px;">
+        <a href="#contact" class="cs-cta-btn">See How Objecto Works →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="assessment">
+    <div class="container">
+      <h2 class="section-heading-center">AI Use Case Assessment</h2>
+      <p style="text-align:center; max-width:700px; margin:0 auto 32px; color:#4b5563; font-size:1.05rem; line-height:1.6;">
+        A fixed-fee, time-boxed sprint to identify, prioritize, and prove out the AI use cases actually worth pursuing &mdash; before you commit engineering time.
+      </p>
+      <div class="card-grid-2-center">
+        <div class="info-card" style="cursor:default;">
+          <div class="info-card-body">
+            <h3>What You Get</h3>
+            <ul style="margin-top:10px; padding-left:18px; font-size:0.9rem; color:#4b5563; line-height:1.7;">
+              <li>A prioritized, defensible use-case roadmap</li>
+              <li>A build-vs-buy recommendation for your top use case</li>
+              <li>A working prototype, not just a slide deck</li>
+              <li>Governance and cost-of-error scored in from day one</li>
+            </ul>
+          </div>
+        </div>
+        <div class="info-card" style="cursor:default;">
+          <div class="info-card-body">
+            <h3>How It Works</h3>
+            <p style="margin-top:8px; font-size:0.9rem; color:#4b5563; line-height:1.6;">Kickoff &amp; context intake, use-case discovery, governance-aware prioritization, build-vs-buy recommendation, rapid prototype, findings readout, and next-phase scoping.</p>
+            <p style="margin-top:10px; font-size:0.85rem; color:#6b7280;"><em>Pricing and scope: contact us.</em></p>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:28px;">
+        <a href="#contact" class="cs-cta-btn">Book a Consult →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="automation" style="background:#ffffff;">
+    <div class="container">
+      <h2 class="section-heading-center">Workflow Automation</h2>
+      <p style="text-align:center; max-width:700px; margin:0 auto 32px; color:#4b5563; font-size:1.05rem; line-height:1.6;">
+        Once an Assessment identifies a workflow worth automating, we scope and deliver it &mdash; staffed with the right engineers for the job, not promised beyond our own bench.
+      </p>
+      <div class="card-grid-2-center">
+        <div class="info-card" style="cursor:default;">
+          <div class="info-card-body">
+            <h3>What We Bring</h3>
+            <p style="margin-top:8px; font-size:0.9rem; color:#4b5563; line-height:1.6;">Hands-on experience building and operationalizing AI-enabled workflows in production &mdash; intake automation, executive reporting, and adoption measurement, currently in active use in an enterprise transformation program.</p>
+          </div>
+        </div>
+        <div class="info-card" style="cursor:default;">
+          <div class="info-card-body">
+            <h3>How We Staff It</h3>
+            <p style="margin-top:8px; font-size:0.9rem; color:#4b5563; line-height:1.6;">Scoped as its own engagement after an Assessment, with engineers brought in as needed &mdash; not a standing team promised upfront.</p>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:28px;">
+        <a href="#contact" class="cs-cta-btn">Discuss a Workflow →</a>
+      </div>
+    </div>
+  </section>
 
   <section class="section" id="industries">
     <div class="container">

@@ -400,17 +400,8 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("wheel", trigger, { once: true, capture: true, passive: true });
   }
 
-  setHeroContent(currentImage);
-  registerHeroRotationTrigger();
-
-  document.addEventListener("visibilitychange", function () {
-    if (document.visibilityState === "visible" && heroRotationEnabled) {
-      startHeroRotation();
-      return;
-    }
-
-    stopHeroRotation();
-  });
+  // Hero rotation disabled: the static hero (headline, tagline, CTAs) in index.html
+  // is the intended fixed message and should not be overwritten or cycled.
 
   window.addEventListener("load", function () {
     if ("requestIdleCallback" in window) {
