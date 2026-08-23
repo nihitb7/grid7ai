@@ -414,6 +414,10 @@ footer {
   width: calc(35% - 12px);
 }
 
+.svc-detail-card {
+  min-height: 215px;
+}
+
 .info-card {
   background: #ffffff;
   border: 1px solid #e5e7eb;
