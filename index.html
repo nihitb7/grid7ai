@@ -460,13 +460,41 @@
 
 
   <section class="contact-section" id="contact">
-    <div class="contact-container">
-      <div class="contact-image">
-        <img src="src/images/contact-img2.webp" alt="Contact Illustration" width="900" height="700" loading="lazy" decoding="async" />
+    <div class="contact-container-v2">
+      <div class="contact-intro">
+        <h2>Let's Talk</h2>
+        <p>Tell us what you're trying to solve. We'll tell you if we're the right fit.</p>
       </div>
-      <div class="contact-content">
-        <h2 style="color:black">Contact Us</h2>
-        <div class="contact-grid">
+
+      <form id="inquiryForm" class="contact-form-v2">
+        <div class="contact-form-row">
+          <label class="field">
+            <span>Name</span>
+            <input type="text" id="inquiryName" required />
+          </label>
+          <label class="field">
+            <span>Work Email</span>
+            <input type="email" id="inquiryEmail" required />
+          </label>
+        </div>
+        <div class="contact-form-row">
+          <label class="field">
+            <span>Organization</span>
+            <input type="text" id="inquiryOrg" />
+          </label>
+          <label class="field">
+            <span>Phone (optional)</span>
+            <input type="tel" id="inquiryPhone" />
+          </label>
+        </div>
+        <label class="field">
+          <span>What are you trying to solve?</span>
+          <textarea id="inquiryMessage" rows="4" required></textarea>
+        </label>
+        <button type="submit" class="cs-cta-btn">Send Inquiry →</button>
+      </form>
+
+      <div class="contact-grid">
           <div class="contact-card">
             <h3 class="card-title">India Office <br> Development Center</h3>
             <p><strong>Address:</strong><br>
@@ -500,7 +528,6 @@
           </div>
         </div>
       </div>
-    </div>
   </section>
 
   <footer>

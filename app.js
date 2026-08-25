@@ -441,6 +441,21 @@ document.addEventListener("DOMContentLoaded", function () {
       chatBox.style.display = "none";
     });
   }
+
+  document.getElementById("inquiryForm")?.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const name = document.getElementById("inquiryName").value;
+    const email = document.getElementById("inquiryEmail").value;
+    const org = document.getElementById("inquiryOrg").value;
+    const phone = document.getElementById("inquiryPhone").value;
+    const message = document.getElementById("inquiryMessage").value;
+
+    const mailtoLink = `mailto:info@gridsevenai.com?subject=New Inquiry from ${name}&body=${encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nOrganization: ${org}\nPhone: ${phone}\n\n${message}`
+    )}`;
+
+    window.location.href = mailtoLink;
+  });
 });
 
 
