@@ -1131,15 +1131,13 @@ footer {
 
 
 #careers.careers-page {
-  min-height: calc(100vh - 80px);
-  padding: 24px 40px 46px;
+  padding: 48px 40px 56px;
   max-width: 1180px;
   margin: 0 auto;
   background: var(--light-grey);
   color: var(--text-dark);
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 
