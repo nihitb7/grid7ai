@@ -70,9 +70,22 @@ document.addEventListener("DOMContentLoaded", function () {
     return nextY - currentY;
   }
 
+  const sectionResizeObserver = typeof ResizeObserver !== "undefined"
+    ? new ResizeObserver(() => {
+        refreshLockedBounds();
+        requestScrollClamp();
+      })
+    : null;
+
   function lockToSection(section) {
     lockedSection = section;
     const bounds = refreshLockedBounds();
+
+    if (sectionResizeObserver) {
+      sectionResizeObserver.disconnect();
+      sectionResizeObserver.observe(section);
+    }
+
     if (!bounds) return;
 
     window.scrollTo(0, bounds.top);
