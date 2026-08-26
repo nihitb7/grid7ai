@@ -48,7 +48,7 @@
       <br>
       <h3>You're not alone. We help you find the right AI use cases, automate the workflows that matter, and keep execution visible with Objecto&trade;.</h3>
       <div class="hero-cta-row">
-        <a href="#objecto" class="btn-hero-primary">See How Objecto&trade; Works</a>
+        <a href="#objecto" class="btn-hero-primary" onclick="return openObjectoPreview(event)">See How Objecto&trade; Works</a>
         <a href="#assessment" class="btn-hero-secondary">AI Use Case Assessment</a>
       </div>
     </div>
@@ -69,23 +69,6 @@
       <p style="text-align:center; color:#4b5563; font-size:1.05rem; max-width:700px; margin:0 auto 32px; line-height:1.6;">
         Today, many organizations struggle not because of a lack of talent, but because of fragmented execution, unclear priorities, and weak alignment. Objecto&trade; helps close that gap.
       </p>
-
-      <div class="objecto-screens">
-        <div>
-          <div class="screen-frame" onclick="openImageZoom('src/objecto_img/objecto-analytics.jpg', 'Objecto Analytics screen showing quarterly OKR completion tracking')">
-            <img src="src/objecto_img/objecto-analytics.jpg" alt="Objecto Analytics screen showing quarterly OKR completion tracking" width="1707" height="920" loading="lazy" decoding="async" />
-            <span class="screen-zoom-hint" aria-hidden="true">⤢ Click to zoom</span>
-          </div>
-          <p class="screen-caption">Track objective completion over time, with insights logged at each check-in.</p>
-        </div>
-        <div>
-          <div class="screen-frame" onclick="openImageZoom('src/objecto_img/objecto-org-graph.jpg', 'Objecto Organizational Graph showing cascaded OKRs across leadership levels')">
-            <img src="src/objecto_img/objecto-org-graph.jpg" alt="Objecto Organizational Graph showing cascaded OKRs across leadership levels" width="1810" height="1048" loading="lazy" decoding="async" />
-            <span class="screen-zoom-hint" aria-hidden="true">⤢ Click to zoom</span>
-          </div>
-          <p class="screen-caption">See how objectives cascade and align across every level of the organization.</p>
-        </div>
-      </div>
 
       <div class="card-grid-3">
         <div class="info-card" style="cursor:default; text-align:center; padding-top:8px;">
@@ -128,7 +111,7 @@
       </p>
 
       <div style="text-align:center; margin-top:20px;">
-        <a href="#contact" class="cs-cta-btn">See How Objecto&trade; Works →</a>
+        <a href="#contact" class="cs-cta-btn">Book a Consult →</a>
       </div>
     </div>
   </section>
@@ -507,6 +490,7 @@
       <div class="contact-grid">
           <div class="contact-card">
             <h3 class="card-title">Development Center (India)</h3>
+            <p class="card-entity">Grid Seven AI LLP</p>
             <p><strong>Address:</strong><br>
               Regus, Fl 16, World Trade Tower, Sector-16,<br>
               Noida, UP-201301, India
@@ -516,6 +500,7 @@
           </div>
           <div class="contact-card">
             <h3 class="card-title">Business Development (US)</h3>
+            <p class="card-entity">Grid Seven AI LLC</p>
             <p><strong>Address:</strong><br>
               30 Lincoln Plaza<br>
               New York, NY 10023, USA
@@ -524,6 +509,7 @@
             <p>nihit@gridsevenai.com</p>
           </div>
         </div>
+        <p class="contact-entity-note">Grid Seven AI LLP (India) and Grid Seven AI LLC (US) are partner entities operating under the Grid Seven AI brand.</p>
       </div>
   </section>
 
@@ -574,9 +560,25 @@
     </div>
   </div>
 
-  <div class="img-zoom-overlay" id="imgZoomOverlay" onclick="closeImageZoom()">
-    <button class="img-zoom-close" onclick="closeImageZoom()" aria-label="Close zoomed image">&times;</button>
-    <img id="imgZoomImg" src="" alt="" />
+  <div class="objecto-preview-overlay" id="objectoPreviewOverlay" onclick="handleObjectoPreviewOverlayClick(event)">
+    <div class="objecto-preview-box">
+      <button class="img-zoom-close" onclick="closeObjectoPreview()" aria-label="Close">&times;</button>
+      <h3>See How Objecto&trade; Works</h3>
+      <p class="objecto-preview-sub">A quick look at the platform &mdash; alignment tracking and cascaded OKRs across the organization.</p>
+      <div class="objecto-preview-shots">
+        <figure>
+          <img src="src/objecto_img/objecto-analytics.jpg" alt="Objecto Analytics screen showing quarterly OKR completion tracking" width="1707" height="920" loading="lazy" decoding="async" />
+          <figcaption>Track objective completion over time, with insights logged at each check-in.</figcaption>
+        </figure>
+        <figure>
+          <img src="src/objecto_img/objecto-org-graph.jpg" alt="Objecto Organizational Graph showing cascaded OKRs across leadership levels" width="1810" height="1048" loading="lazy" decoding="async" />
+          <figcaption>See how objectives cascade and align across every level of the organization.</figcaption>
+        </figure>
+      </div>
+      <div class="objecto-preview-footer">
+        <a href="#objecto" class="cs-cta-btn" onclick="exploreObjectoSection(event)">Explore Objecto&trade; →</a>
+      </div>
+    </div>
   </div>
 
   <script src="app.js" defer></script>

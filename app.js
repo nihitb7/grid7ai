@@ -1002,28 +1002,44 @@ function handleOverlayClick(e) {
   }
 }
 
-function openImageZoom(src, alt) {
-  const overlay = document.getElementById('imgZoomOverlay');
-  const img = document.getElementById('imgZoomImg');
-  if (!overlay || !img) return;
+function openObjectoPreview(e) {
+  if (e && e.preventDefault) e.preventDefault();
 
-  img.src = src;
-  img.alt = alt || '';
+  const overlay = document.getElementById('objectoPreviewOverlay');
+  if (!overlay) return false;
+
   overlay.classList.add('active');
   document.body.style.overflow = 'hidden';
+  return false;
 }
 
-function closeImageZoom() {
-  const overlay = document.getElementById('imgZoomOverlay');
+function closeObjectoPreview() {
+  const overlay = document.getElementById('objectoPreviewOverlay');
   if (!overlay) return;
 
   overlay.classList.remove('active');
   document.body.style.overflow = '';
 }
 
+function handleObjectoPreviewOverlayClick(e) {
+  if (e.target === document.getElementById('objectoPreviewOverlay')) {
+    closeObjectoPreview();
+  }
+}
+
+function exploreObjectoSection(e) {
+  if (e && e.preventDefault) e.preventDefault();
+  closeObjectoPreview();
+
+  const navLink = document.querySelector('.nav-links a[href="#objecto"]');
+  if (navLink) {
+    navLink.click();
+  }
+}
+
 document.addEventListener('keydown', function (e) {
   if (e.key !== 'Escape') return;
   closeModal();
-  closeImageZoom();
+  closeObjectoPreview();
 });
 
