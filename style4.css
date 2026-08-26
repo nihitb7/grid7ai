@@ -280,7 +280,8 @@ section,
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-  margin: 22px 0;
+  margin: 22px auto;
+  max-width: 720px;
 }
 
 @media (max-width: 760px) {
@@ -288,10 +289,12 @@ section,
 }
 
 .screen-frame {
+  position: relative;
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid #e5e7eb;
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+  cursor: zoom-in;
 }
 
 .screen-frame img {
@@ -299,11 +302,79 @@ section,
   display: block;
 }
 
+.screen-zoom-hint {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.72);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.screen-frame:hover .screen-zoom-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .screen-caption {
   font-size: 0.82rem;
   color: #6b7280;
   text-align: center;
   margin-top: 8px;
+}
+
+.img-zoom-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2100;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 14, 20, 0.88);
+  padding: clamp(18px, 4vw, 48px);
+  cursor: zoom-out;
+}
+
+.img-zoom-overlay.active {
+  display: flex;
+}
+
+.img-zoom-overlay img {
+  max-width: 92vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  cursor: default;
+}
+
+.img-zoom-close {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.img-zoom-close:hover {
+  background: rgba(255, 255, 255, 0.24);
 }
 
 .tech-note {

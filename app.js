@@ -1002,7 +1002,28 @@ function handleOverlayClick(e) {
   }
 }
 
+function openImageZoom(src, alt) {
+  const overlay = document.getElementById('imgZoomOverlay');
+  const img = document.getElementById('imgZoomImg');
+  if (!overlay || !img) return;
+
+  img.src = src;
+  img.alt = alt || '';
+  overlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeImageZoom() {
+  const overlay = document.getElementById('imgZoomOverlay');
+  if (!overlay) return;
+
+  overlay.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
 document.addEventListener('keydown', function (e) {
-  if (e.key === 'Escape') closeModal();
+  if (e.key !== 'Escape') return;
+  closeModal();
+  closeImageZoom();
 });
 
