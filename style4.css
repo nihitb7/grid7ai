@@ -1295,6 +1295,45 @@ footer {
   color: #888;
 }
 
+.chat-book-call-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: var(--primary);
+  color: #0b1220;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 14px rgba(0, 219, 92, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chat-book-call-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 219, 92, 0.4);
+}
+
+.chat-divider {
+  display: flex;
+  align-items: center;
+  color: #9ca3af;
+  font-size: 0.78rem;
+  margin: 14px 0;
+}
+
+.chat-divider::before,
+.chat-divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.chat-divider span {
+  padding: 0 10px;
+}
+
 .chat-popup input,
 .chat-popup textarea {
   width: 100%;
