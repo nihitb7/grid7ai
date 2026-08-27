@@ -390,6 +390,42 @@ section,
   margin-top: 10px;
 }
 
+.method-steps-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: clamp(20px, 3vw, 32px);
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.method-step {
+  border-top: 3px solid var(--primary);
+  padding-top: 14px;
+}
+
+.method-step-num {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--primary-hover);
+  margin-bottom: 6px;
+}
+
+.method-step h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 6px;
+}
+
+.method-step p {
+  font-size: 0.88rem;
+  color: #4b5563;
+  line-height: 1.6;
+  margin: 0;
+}
+
 .overlay {
   position: absolute;
   top: 0;

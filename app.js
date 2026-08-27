@@ -1027,16 +1027,6 @@ function handleObjectoPreviewOverlayClick(e) {
   }
 }
 
-function exploreObjectoSection(e) {
-  if (e && e.preventDefault) e.preventDefault();
-  closeObjectoPreview();
-
-  const navLink = document.querySelector('.nav-links a[href="#objecto"]');
-  if (navLink) {
-    navLink.click();
-  }
-}
-
 document.addEventListener('keydown', function (e) {
   if (e.key !== 'Escape') return;
   closeModal();
