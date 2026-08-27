@@ -332,13 +332,13 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const heroSection = document.querySelector(".hero");
-  const heroText = document.getElementById("heroText");
+  const heroHeadline = document.getElementById("heroHeadline");
 
   const images = ["src/images/img1.webp", "src/images/img2.webp", "src/images/img5.webp"];
   const texts = [
-    `<h1>Is your organization prepared to unlock the next level of growth?</h1>`,
-    `<h1>Accelerating Business Growth with Artificial Intelligence</h1>`,
-    `<h1>Empower Your Organization and accelerate business growth with AI-Driven OKRs</h1>`
+    "Most AI pilots never pay off. We build the ones that do.",
+    "95% of AI pilots show no ROI. Ours ends in a roadmap in 4 weeks.",
+    "No layers, no open-ended engagement — just a roadmap you can defend."
   ];
 
   function preloadImage(src) {
@@ -353,24 +353,24 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentImage = 0;
 
   function setHeroContent(index) {
-    if (!heroSection || !heroText) return;
+    if (!heroSection || !heroHeadline) return;
 
     heroSection.style.backgroundImage = `url('${images[index]}')`;
-    heroText.innerHTML = texts[index];
+    heroHeadline.textContent = texts[index];
   }
 
   function changeHeroContent() {
-    if (!heroText) return;
+    if (!heroHeadline) return;
 
-    heroText.classList.remove("fade-in");
-    heroText.classList.add("fade-out");
+    heroHeadline.classList.remove("fade-in");
+    heroHeadline.classList.add("fade-out");
 
     setTimeout(() => {
       currentImage = (currentImage + 1) % images.length;
       setHeroContent(currentImage);
 
-      heroText.classList.remove("fade-out");
-      heroText.classList.add("fade-in");
+      heroHeadline.classList.remove("fade-out");
+      heroHeadline.classList.add("fade-in");
     }, 250);
   }
 
@@ -413,8 +413,17 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("wheel", trigger, { once: true, capture: true, passive: true });
   }
 
-  // Hero rotation disabled: the static hero (headline, tagline, CTAs) in index.html
-  // is the intended fixed message and should not be overwritten or cycled.
+  document.addEventListener("visibilitychange", function () {
+    if (!heroRotationEnabled) return;
+
+    if (document.visibilityState === "visible") {
+      startHeroRotation();
+    } else {
+      stopHeroRotation();
+    }
+  });
+
+  registerHeroRotationTrigger();
 
   window.addEventListener("load", function () {
     if ("requestIdleCallback" in window) {

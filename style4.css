@@ -1796,12 +1796,12 @@ footer {
 }
 
 
-#heroText {
+#heroHeadline {
   opacity: 1;
   transition: opacity 0.6s ease-in-out;
 }
-#heroText.fade-out { opacity: 0; }
-#heroText.fade-in  { opacity: 1; }
+#heroHeadline.fade-out { opacity: 0; }
+#heroHeadline.fade-in  { opacity: 1; }
 
 
 .menu-toggle {
