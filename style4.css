@@ -215,6 +215,17 @@ section,
 
 .trust-strip-text a:hover { text-decoration: underline; }
 
+.stat-callout {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #4b5563;
+  max-width: 640px;
+  margin: 28px auto 0;
+  line-height: 1.6;
+}
+
+.stat-callout strong { color: #111827; }
+
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
