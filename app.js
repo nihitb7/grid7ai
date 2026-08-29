@@ -336,9 +336,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const images = ["src/images/img1.webp", "src/images/img2.webp", "src/images/img5.webp"];
   const texts = [
-    "Most AI pilots never pay off. We build the ones that do.",
-    "95% of AI pilots show no ROI. Ours ends in a roadmap in 4 weeks.",
-    "No layers, no open-ended engagement — just a roadmap you can defend."
+    "Is your organization prepared to unlock the next level of growth?",
+    "Accelerating Business Growth with Artificial Intelligence",
+    "Empower Your Organization with AI-Driven OKRs and Execution Visibility"
   ];
 
   function preloadImage(src) {
@@ -780,139 +780,6 @@ const modalData = {
     `
   },
 
-  'gaming': {
-    img: 'src/extra_img/GamingIndustry.webp',
-    bgColor: '#dcfce7',
-    fallback: '🎮',
-    title: 'Gaming Industry with AI',
-    summary: '<strong>Create more adaptive and engaging play.</strong> Use AI to improve gameplay, testing, personalization, environments, and player experience.',
-    body: `
-      <p>AI is transforming the gaming industry by improving gameplay, personalizing player experience, enhancing
-      game design, automating testing, and enabling realistic environments.</p>
-
-      <h4>Intelligent NPC Behaviour</h4>
-      <p>AI makes Non-Playable Characters more realistic, adaptive to player actions, dynamic in combat, and capable of learning patterns — creating more engaging and unpredictable gameplay.</p>
-
-      <h4>Personalized Player Experience</h4>
-      <p>AI analyses player behaviour to adjust win patterns, recommend missions, personalize game paths, and suggest in-game purchases.</p>
-
-      <h4>Realistic Physics &amp; Graphics</h4>
-      <p>AI dynamically enhances character animations, facial expressions, motion capture, environmental effects, and realistic physics simulations to make games more cinematic and lifelike.</p>
-
-      <h4>Automated Game Testing</h4>
-      <ul>
-        <li>Auto-test game levels and identify bugs</li>
-        <li>Run thousands of test cases</li>
-        <li>Simulate virtual users and complex gameplay patterns</li>
-        <li>Validate performance and stability</li>
-      </ul>
-      <p>AI reduces QA cycles, improves game quality, and speeds time-to-market.</p>
-
-      <h4>Adaptive Game Complexity</h4>
-      <p>AI adjusts difficulty based on player skill, reaction time, and strategy styles to maintain the right balance between fun and challenge.</p>
-
-      <h4>Game Storytelling &amp; Narrative Design</h4>
-      <p>Generative AI can create dialogues, build story arcs, generate characters and expand missions dynamically to help developers create richer narratives.</p>
-    `
-  },
-
-  'fintech': {
-    img: 'src/extra_img/Fintech.webp',
-    bgColor: '#dbeafe',
-    fallback: '💳',
-    title: 'FinTech with AI',
-    summary: '<strong>Make financial services faster and smarter.</strong> Apply AI across risk, fraud, operations, support, and personalized decision-making.',
-    body: `
-      <p>AI is transforming the banking and financial services industry across risk, operations, customer experience,
-      fraud prevention, and decision-making.</p>
-
-      <h4>Risk Assessment &amp; Credit Scoring</h4>
-      <p>Traditional credit scores only consider past financial behaviour. AI-powered scoring also includes spending patterns, cash flow, transaction history, and employment behaviour — leading to more accurate lending decisions.</p>
-
-      <h4>Automation of Back-Office Processes</h4>
-      <p>AI + RPA reduces manual work in KYC processing, document verification, loan approvals, account opening, compliance checks, cheque clearing, and reconciliation.</p>
-
-      <h4>Customer Support &amp; Chatbots</h4>
-      <p>AI-powered chatbots can answer queries, provide account information, block cards, reset passwords, and guide customers 24/7 — reducing call-centre dependency.</p>
-
-      <h4>Personal Finance &amp; Wealth Management</h4>
-      <p>AI helps customers manage money through spending analysis, personalized investment recommendations, robo-advisory services, and automated savings suggestions.</p>
-    `
-  },
-
-  'insurtech': {
-    img: 'src/extra_img/Insurance.webp',
-    bgColor: '#fee2e2',
-    fallback: '🛡️',
-    title: 'InsurTech with AI',
-    summary: '<strong>Modernize insurance workflows with intelligence.</strong> Improve claims, risk modelling, fraud checks, and customer support through AI.',
-    body: `
-      <p>AI is transforming the insurance industry across claims, customer experience, operations, fraud prevention,
-      and risk modelling.</p>
-
-      <h4>Automated Claims Processing</h4>
-      <p>AI speeds up and improves accuracy in claims by automatically reading documents (OCR + NLP), validating policy details, assessing damage using photos/videos, and auto-approving simple claims.</p>
-
-      <h4>Risk Assessment &amp; Pricing</h4>
-      <p>AI models can predict risk more accurately, provide personalized pricing, adjust premiums dynamically, and identify high-risk policies earlier — helping insurers improve profitability and reduce losses.</p>
-
-      <h4>Customer Service &amp; Chatbots</h4>
-      <p>AI-powered agents provide 24/7 customer support, policy information, renewal reminders, claim status updates, and guidance for selecting policies.</p>
-
-      <h4>Claims Damage Assessment</h4>
-      <p>AI can analyse vehicle accident images, property damage photos, and health/medical reports to estimate claim amounts quickly and accurately.</p>
-
-      <h4>Document Intelligence</h4>
-      <p>AI automatically extracts information from KYC documents, hospital bills, repair estimates, medical records, and claim forms — speeding up onboarding and processing.</p>
-    `
-  },
-
-  'healthtech': {
-    img: 'src/extra_img/HealthTech.webp',
-    bgColor: '#fce7f3',
-    fallback: '🏥',
-    title: 'HealthTech / MedTech with AI',
-    summary: '<strong>Support faster, smarter care decisions.</strong> Use AI to improve diagnostics, imaging workflows, clinical documentation, and patient care.',
-    body: `
-      <p>AI is transforming healthcare across diagnostics, imaging, clinical documentation, and patient care.</p>
-
-      <h4>Disease Diagnosis &amp; Early Detection</h4>
-      <p>AI systems can analyze X-rays, CT scans, MRI scans, ultrasound images, and pathology slides — enabling faster and more accurate diagnosis.</p>
-
-      <h4>Medical Imaging &amp; Analysis</h4>
-      <p>AI-powered imaging tools can highlight abnormalities, assist radiologists, create 3D reconstructions, and detect micro-lesions invisible to the human eye — dramatically speeding up radiology workflows.</p>
-
-      <h4>Clinical Documentation Automation</h4>
-      <p>AI helps doctors by transcribing clinical notes, generating summaries, filling EHR fields automatically, and reducing manual paperwork — so doctors save time and focus more on patient care.</p>
-    `
-  },
-
-  'edtech': {
-    img: 'src/extra_img/EdTechWithAI.webp',
-    bgColor: '#d1fae5',
-    fallback: '📚',
-    title: 'EdTech with AI',
-    summary: '<strong>Make learning more personal and effective.</strong> Use AI to support students, teachers, assessments, content creation, and immersive education.',
-    body: `
-      <p>AI is transforming the education industry by personalizing learning, improving teaching efficiency,
-      enhancing student outcomes, and automating administrative tasks.</p>
-
-      <h4>Personalized Learning</h4>
-      <p>AI tailors learning to each student by identifying strengths and weaknesses, giving personalized study plans, and recommending practice exercises — so students learn at their own pace.</p>
-
-      <h4>Intelligent Tutoring Systems</h4>
-      <p>AI-powered tutors can explain concepts, provide step-by-step solutions, clarify doubts 24/7, and give additional practice — enabling individualized support even outside class.</p>
-
-      <h4>Automated Grading &amp; Assessment</h4>
-      <p>AI can automatically grade objective tests, assignments, essays, quizzes, and homework submissions — speeding up evaluation and reducing teacher workload.</p>
-
-      <h4>Smart Content Creation</h4>
-      <p>AI can generate question banks, lesson summaries, class notes, practice worksheets, and study guides — saving teachers hours of content preparation time.</p>
-
-      <h4>Virtual Classrooms &amp; Immersive Learning</h4>
-      <p>AI supports AR/VR-based learning, virtual labs, simulated environments, and remote learning enhancements — making education more interactive.</p>
-    `
-  }
 };
 
 function convertSectionParagraphsToPoints(container) {

@@ -118,7 +118,6 @@ body::-webkit-scrollbar {
 section,
 .hero,
 #services,
-#industries,
 #case-studies,
 #careers,
 #about,
@@ -467,7 +466,6 @@ section,
 }
 
 #services,
-#industries,
 #case-studies,
 #careers,
 #about,
@@ -494,17 +492,10 @@ footer {
   color: var(--text-dark);
 }
 
-#services .container,
-#industries .container {
+#services .container {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 20px;
-}
-
-#industries {
-  background-color: #ffffff;
-  padding: 34px 0 56px;
-  color: #0f172a;
 }
 
 .section-heading-center {
