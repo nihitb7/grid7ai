@@ -1055,6 +1055,27 @@ footer {
   cursor: pointer;
 }
 
+.form-status {
+  display: none;
+  font-size: 0.9rem;
+  margin-top: 12px;
+  text-align: center;
+}
+
+.form-status:not(:empty) {
+  display: block;
+}
+
+.form-status-success {
+  color: var(--primary-hover);
+  font-weight: 600;
+}
+
+.form-status-error {
+  color: #dc2626;
+  font-weight: 600;
+}
+
 @media (max-width: 640px) {
   .contact-form-row {
     grid-template-columns: 1fr;

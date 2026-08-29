@@ -448,40 +448,62 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     document.getElementById("chatForm")?.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const mobile = document.getElementById("mobile").value;
-      const message = document.getElementById("message").value;
-
-      const mailtoLink = `mailto:info@gridsevenai.com?cc=nihitb@gridsevenai.com&bcc=nihitb@gmail.com,sanjay.sahney@gmail.com&subject=${encodeURIComponent(
-        `New Inquiry from ${name}`
-      )}&body=${encodeURIComponent(
-        `Name: ${name}\nEmail: ${email}\nMobile: ${mobile}\n\n${message}`
-      )}`;
-
-      window.location.href = mailtoLink;
-
-      chatBox.style.display = "none";
+      submitInquiryForm(e, {
+        statusId: "chatFormStatus",
+        onSuccess: () => {
+          setTimeout(() => { chatBox.style.display = "none"; }, 2000);
+        }
+      });
     });
   }
 
   document.getElementById("inquiryForm")?.addEventListener("submit", function (e) {
-    e.preventDefault();
-    const name = document.getElementById("inquiryName").value;
-    const email = document.getElementById("inquiryEmail").value;
-    const org = document.getElementById("inquiryOrg").value;
-    const phone = document.getElementById("inquiryPhone").value;
-    const message = document.getElementById("inquiryMessage").value;
-
-    const mailtoLink = `mailto:info@gridsevenai.com?cc=nihitb@gridsevenai.com&bcc=nihitb@gmail.com,sanjay.sahney@gmail.com&subject=${encodeURIComponent(
-      `New Inquiry from ${name}`
-    )}&body=${encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nOrganization: ${org}\nPhone: ${phone}\n\n${message}`
-    )}`;
-
-    window.location.href = mailtoLink;
+    submitInquiryForm(e, { statusId: "inquiryFormStatus" });
   });
+
+  function submitInquiryForm(e, options) {
+    e.preventDefault();
+
+    const form = e.target;
+    const statusEl = document.getElementById(options.statusId);
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn ? submitBtn.textContent : "";
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending...";
+    }
+
+    fetch("https://formsubmit.co/ajax/info@gridsevenai.com", {
+      method: "POST",
+      headers: { Accept: "application/json" },
+      body: new FormData(form)
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error("Submission failed");
+
+        form.reset();
+        form.style.display = "none";
+
+        if (statusEl) {
+          statusEl.textContent = "Thanks! We'll be in touch shortly.";
+          statusEl.classList.add("form-status-success");
+        }
+
+        if (options.onSuccess) options.onSuccess();
+      })
+      .catch(() => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
+
+        if (statusEl) {
+          statusEl.textContent = "Something went wrong — please email us directly at info@gridsevenai.com.";
+          statusEl.classList.add("form-status-error");
+        }
+      });
+  }
 });
 
 

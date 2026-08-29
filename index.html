@@ -13,7 +13,7 @@
   <link rel="preload" as="image" href="src/images/img1.webp" fetchpriority="high" />
   <link rel="preload" as="image" href="src/images/sanjay_img3.webp" />
   <link rel="preload" as="image" href="src/images/NihitBhargava.webp" />
-  <link rel="stylesheet" href="style4.css?v=6" />
+  <link rel="stylesheet" href="style4.css?v=7" />
 </head>
 
 <body>
@@ -434,32 +434,36 @@
       <div class="chat-divider" style="max-width:420px; margin:0 auto 28px;"><span>or send us a message</span></div>
 
       <form id="inquiryForm" class="contact-form-v2">
+        <input type="hidden" name="_subject" value="New Inquiry - Grid Seven AI website" />
+        <input type="hidden" name="_cc" value="nihitb@gridsevenai.com" />
+        <input type="hidden" name="_template" value="table" />
         <div class="contact-form-row">
           <label class="field">
             <span>Name</span>
-            <input type="text" id="inquiryName" required />
+            <input type="text" id="inquiryName" name="Name" required />
           </label>
           <label class="field">
             <span>Work Email</span>
-            <input type="email" id="inquiryEmail" required />
+            <input type="email" id="inquiryEmail" name="Email" required />
           </label>
         </div>
         <div class="contact-form-row">
           <label class="field">
             <span>Organization</span>
-            <input type="text" id="inquiryOrg" />
+            <input type="text" id="inquiryOrg" name="Organization" />
           </label>
           <label class="field">
             <span>Phone (optional)</span>
-            <input type="tel" id="inquiryPhone" />
+            <input type="tel" id="inquiryPhone" name="Phone" />
           </label>
         </div>
         <label class="field">
           <span>What are you trying to solve?</span>
-          <textarea id="inquiryMessage" rows="4" required></textarea>
+          <textarea id="inquiryMessage" name="Message" rows="4" required></textarea>
         </label>
         <button type="submit" class="cs-cta-btn">Send Inquiry →</button>
       </form>
+      <p id="inquiryFormStatus" class="form-status"></p>
 
       <div class="contact-grid">
           <div class="contact-card">
@@ -504,12 +508,16 @@
     <a href="https://calendly.com/gridsevenai-info" target="_blank" rel="noopener" class="chat-book-call-btn">Book a Call &rarr;</a>
     <div class="chat-divider"><span>or send a message</span></div>
     <form id="chatForm">
-      <input type="text" id="name" placeholder="Your Name" required />
-      <input type="email" id="email" placeholder="Your Email" required />
-      <input type="tel" id="mobile" placeholder="Your Mobile Number" required />
-      <textarea id="message" rows="4" placeholder="Type your message" required></textarea>
+      <input type="hidden" name="_subject" value="New Chat Inquiry - Grid Seven AI website" />
+      <input type="hidden" name="_cc" value="nihitb@gridsevenai.com" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="text" id="name" name="Name" placeholder="Your Name" required />
+      <input type="email" id="email" name="Email" placeholder="Your Email" required />
+      <input type="tel" id="mobile" name="Mobile" placeholder="Your Mobile Number" required />
+      <textarea id="message" name="Message" rows="4" placeholder="Type your message" required></textarea>
       <button type="submit">Send Message</button>
     </form>
+    <p id="chatFormStatus" class="form-status"></p>
   </div>
 
 
@@ -557,7 +565,7 @@
     </div>
   </div>
 
-  <script src="app.js?v=5" defer></script>
+  <script src="app.js?v=6" defer></script>
 </body>
 
 </html>
