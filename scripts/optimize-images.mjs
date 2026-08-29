@@ -60,6 +60,15 @@ const targets = [
       'HealthTech.jpg',
       'EdTechWithAI.jpg'
     ]
+  },
+  {
+    dir: 'src/objecto_img',
+    maxWidth: 1280,
+    quality: 72,
+    files: [
+      'objecto-analytics.jpg',
+      'objecto-org-graph.jpg'
+    ]
   }
 ];
 

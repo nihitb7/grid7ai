@@ -344,8 +344,8 @@ html {
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
 }
 
-.objecto-preview-shots img[width="1707"] { aspect-ratio: 1707 / 920; }
-.objecto-preview-shots img[width="1810"] { aspect-ratio: 1810 / 1048; }
+.objecto-preview-shots img[height="690"] { aspect-ratio: 1280 / 690; }
+.objecto-preview-shots img[height="741"] { aspect-ratio: 1280 / 741; }
 
 .objecto-preview-shots figcaption {
   font-size: 0.82rem;
