@@ -2,197 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const menuToggle = document.getElementById("menuToggle");
   const navLinks = document.getElementById("navLinks");
-  const header = document.querySelector("header");
-  let lockedSection = null;
-  let lockedBounds = null;
-  let touchStartY = 0;
-  let lastTouchTime = 0;
-  let touchVelocity = 0;
-  let isClampingScroll = false;
-  let clampFrame = null;
-  let scrollDelta = 0;
-  let scrollFrame = null;
-  let momentumFrame = null;
   const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const hasCoarsePointer = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
-  const isTouchLikeDevice = hasCoarsePointer || navigator.maxTouchPoints > 0;
-  const useLockedScrolling = !isTouchLikeDevice && !prefersReducedMotion;
-
-  function getHeaderOffset() {
-    return header ? header.offsetHeight : 0;
-  }
-
-  function getSectionBounds(section) {
-    const headerOffset = getHeaderOffset();
-    const sectionTop = section.getBoundingClientRect().top + window.scrollY - headerOffset;
-    const sectionBottom = sectionTop + section.offsetHeight;
-    const maxScroll = Math.max(sectionTop, sectionBottom - window.innerHeight);
-
-    return {
-      top: Math.max(0, sectionTop),
-      bottom: Math.max(0, maxScroll)
-    };
-  }
-
-  function refreshLockedBounds() {
-    if (!lockedSection) return null;
-
-    lockedBounds = getSectionBounds(lockedSection);
-    return lockedBounds;
-  }
-
-  function clampScrollToLockedSection() {
-    if (!lockedSection || isClampingScroll) return;
-
-    const bounds = lockedBounds || refreshLockedBounds();
-    if (!bounds) return;
-
-    const nextY = Math.min(Math.max(window.scrollY, bounds.top), bounds.bottom);
-
-    if (Math.abs(nextY - window.scrollY) > 1) {
-      isClampingScroll = true;
-      window.scrollTo(0, nextY);
-      requestAnimationFrame(() => {
-        isClampingScroll = false;
-      });
-    }
-  }
-
-  function scrollWithinLockedSection(deltaY) {
-    if (!lockedSection) return 0;
-
-    const bounds = lockedBounds || refreshLockedBounds();
-    if (!bounds) return 0;
-
-    const currentY = window.scrollY;
-    const nextY = Math.min(Math.max(window.scrollY + deltaY, bounds.top), bounds.bottom);
-    window.scrollTo(0, nextY);
-    return nextY - currentY;
-  }
-
-  const sectionResizeObserver = typeof ResizeObserver !== "undefined"
-    ? new ResizeObserver(() => {
-        refreshLockedBounds();
-        requestScrollClamp();
-      })
-    : null;
-
-  function lockToSection(section) {
-    lockedSection = section;
-    const bounds = refreshLockedBounds();
-
-    if (sectionResizeObserver) {
-      sectionResizeObserver.disconnect();
-      sectionResizeObserver.observe(section);
-    }
-
-    if (!bounds) return;
-
-    window.scrollTo(0, bounds.top);
-  }
-
-  function scrollToSection(section, smooth = true) {
-    if (useLockedScrolling) {
-      lockToSection(section);
-      return;
-    }
-
-    const headerOffset = getHeaderOffset();
-    const sectionTop = section.getBoundingClientRect().top + window.scrollY - headerOffset;
-    window.scrollTo({ top: Math.max(0, sectionTop), behavior: smooth ? "smooth" : "auto" });
-  }
-
-  function requestLockedScroll(deltaY) {
-    scrollDelta += deltaY;
-
-    if (scrollFrame) return;
-
-    scrollFrame = requestAnimationFrame(() => {
-      const nextDelta = scrollDelta;
-      scrollDelta = 0;
-      scrollFrame = null;
-      scrollWithinLockedSection(nextDelta);
-    });
-  }
-
-  function stopScrollMomentum() {
-    if (!momentumFrame) return;
-
-    cancelAnimationFrame(momentumFrame);
-    momentumFrame = null;
-  }
-
-  function startScrollMomentum(initialVelocity) {
-    stopScrollMomentum();
-
-    let velocity = initialVelocity;
-    let previousTime = performance.now();
-    const minimumVelocity = 0.03;
-    const friction = 0.94;
-
-    function glide(currentTime) {
-      const elapsed = Math.min(currentTime - previousTime, 32);
-      previousTime = currentTime;
-
-      const moved = scrollWithinLockedSection(velocity * elapsed);
-      velocity *= Math.pow(friction, elapsed / 16);
-
-      if (Math.abs(velocity) < minimumVelocity || Math.abs(moved) < 0.5) {
-        momentumFrame = null;
-        return;
-      }
-
-      momentumFrame = requestAnimationFrame(glide);
-    }
-
-    momentumFrame = requestAnimationFrame(glide);
-  }
-
-  function requestScrollClamp() {
-    if (!lockedSection || clampFrame) return;
-
-    clampFrame = requestAnimationFrame(() => {
-      clampFrame = null;
-      clampScrollToLockedSection();
-    });
-  }
-
-  function lockInitialSection() {
-    const hashSection = window.location.hash ? document.querySelector(window.location.hash) : null;
-    const defaultSection = document.getElementById("home");
-    const initialSection = hashSection || defaultSection;
-
-    if (initialSection) {
-      lockToSection(initialSection);
-    }
-  }
-
-  function isModalOpen() {
-    return document.getElementById("modalOverlay")?.classList.contains("active");
-  }
-
-  function getKeyScrollDistance(key) {
-    const lineStep = 80;
-    const pageStep = Math.max(120, window.innerHeight - getHeaderOffset() - 40);
-
-    switch (key) {
-      case "ArrowDown":
-        return lineStep;
-      case "ArrowUp":
-        return -lineStep;
-      case "PageDown":
-      case " ":
-        return pageStep;
-      case "PageUp":
-        return -pageStep;
-      case "Home":
-        return Number.NEGATIVE_INFINITY;
-      case "End":
-        return Number.POSITIVE_INFINITY;
-      default:
-        return null;
-    }
-  }
 
   if (menuToggle && navLinks) {
     menuToggle.addEventListener("click", function (e) {
@@ -201,134 +11,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     navLinks.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", function (e) {
+      link.addEventListener("click", function () {
         navLinks.classList.remove("show");
-
-        const targetId = link.getAttribute("href");
-        if (!targetId || !targetId.startsWith("#")) return;
-
-        const targetSection = document.querySelector(targetId);
-        if (!targetSection) return;
-
-        e.preventDefault();
-        scrollToSection(targetSection);
       });
     });
-  }
-
-  document.querySelector(".logo a")?.addEventListener("click", function (e) {
-    const targetId = this.getAttribute("href");
-    const targetSection = targetId ? document.querySelector(targetId) : null;
-
-    if (!targetSection) return;
-
-    e.preventDefault();
-    scrollToSection(targetSection);
-  });
-
-  document.addEventListener("click", function (e) {
-    if (e.defaultPrevented) return;
-
-    const link = e.target.closest('a[href^="#"]');
-    if (!link) return;
-
-    const targetId = link.getAttribute("href");
-    const targetSection = targetId && targetId.length > 1 ? document.querySelector(targetId) : null;
-    if (!targetSection) return;
-
-    e.preventDefault();
-    scrollToSection(targetSection);
-  });
-
-  document.addEventListener("wheel", function (e) {
-    if (!lockedSection || isModalOpen()) return;
-
-    stopScrollMomentum();
-    e.preventDefault();
-    requestLockedScroll(e.deltaY);
-  }, { passive: false });
-
-  document.addEventListener("touchstart", function (e) {
-    stopScrollMomentum();
-    touchStartY = e.touches[0]?.clientY || 0;
-    lastTouchTime = performance.now();
-    touchVelocity = 0;
-  }, { passive: true });
-
-  document.addEventListener("touchmove", function (e) {
-    if (!lockedSection || isModalOpen()) return;
-
-    const currentY = e.touches[0]?.clientY || touchStartY;
-    const currentTime = performance.now();
-    const deltaY = touchStartY - currentY;
-    const elapsed = Math.max(currentTime - lastTouchTime, 1);
-
-    touchStartY = currentY;
-    lastTouchTime = currentTime;
-    touchVelocity = deltaY / elapsed;
-
-    e.preventDefault();
-    requestLockedScroll(deltaY);
-  }, { passive: false });
-
-  document.addEventListener("touchend", function () {
-    if (!lockedSection || isModalOpen()) return;
-
-    if (Math.abs(touchVelocity) > 0.45) {
-      startScrollMomentum(touchVelocity);
-    }
-
-    touchVelocity = 0;
-  }, { passive: true });
-
-  document.addEventListener("keydown", function (e) {
-    if (!lockedSection || isModalOpen() || e.ctrlKey || e.metaKey || e.altKey) return;
-
-    const scrollDistance = getKeyScrollDistance(e.key);
-    if (scrollDistance === null) return;
-
-    e.preventDefault();
-
-    if (scrollDistance === Number.NEGATIVE_INFINITY) {
-      const bounds = lockedBounds || refreshLockedBounds();
-      if (bounds) {
-        window.scrollTo(0, bounds.top);
-      }
-      return;
-    }
-
-    if (scrollDistance === Number.POSITIVE_INFINITY) {
-      const bounds = lockedBounds || refreshLockedBounds();
-      if (bounds) {
-        window.scrollTo(0, bounds.bottom);
-      }
-      return;
-    }
-
-    scrollWithinLockedSection(scrollDistance);
-  });
-
-  window.addEventListener("scroll", function () {
-    requestScrollClamp();
-  });
-
-  window.addEventListener("resize", function () {
-    refreshLockedBounds();
-    requestScrollClamp();
-  });
-
-  window.addEventListener("load", function () {
-    refreshLockedBounds();
-    requestScrollClamp();
-  });
-
-  if (useLockedScrolling) {
-    lockInitialSection();
-  } else if (window.location.hash) {
-    const hashSection = document.querySelector(window.location.hash);
-    if (hashSection) {
-      scrollToSection(hashSection, false);
-    }
   }
 
   const heroSection = document.querySelector(".hero");
@@ -390,27 +76,14 @@ document.addEventListener("DOMContentLoaded", function () {
   let heroRotationEnabled = false;
 
   function enableHeroRotation() {
-    if (heroRotationEnabled) return;
+    if (heroRotationEnabled || prefersReducedMotion) return;
 
     heroRotationEnabled = true;
+    preloadRemainingHeroImages();
+
     if (document.visibilityState === "visible") {
       startHeroRotation();
     }
-  }
-
-  function registerHeroRotationTrigger() {
-    const trigger = () => {
-      enableHeroRotation();
-      window.removeEventListener("pointerdown", trigger, true);
-      window.removeEventListener("keydown", trigger, true);
-      window.removeEventListener("touchstart", trigger, true);
-      window.removeEventListener("wheel", trigger, true);
-    };
-
-    window.addEventListener("pointerdown", trigger, { once: true, capture: true, passive: true });
-    window.addEventListener("keydown", trigger, { once: true, capture: true });
-    window.addEventListener("touchstart", trigger, { once: true, capture: true, passive: true });
-    window.addEventListener("wheel", trigger, { once: true, capture: true, passive: true });
   }
 
   document.addEventListener("visibilitychange", function () {
@@ -423,16 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  registerHeroRotationTrigger();
-
-  window.addEventListener("load", function () {
-    if ("requestIdleCallback" in window) {
-      window.requestIdleCallback(preloadRemainingHeroImages, { timeout: 2000 });
-      return;
-    }
-
-    setTimeout(preloadRemainingHeroImages, 1200);
-  });
+  enableHeroRotation();
 
   const chatLauncher = document.getElementById("chat-launcher");
   const chatBox = document.getElementById("chatBox");

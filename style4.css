@@ -13,6 +13,7 @@
   --fs-subheading: 1rem;
   --fs-body: 0.95rem;
   --fs-label: 0.75rem;
+  --header-offset: 90px;
 }
 
 * {
@@ -101,28 +102,8 @@ nav ul {
 }
 
 html {
-  scroll-behavior: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  display: none;
-}
-
-[id] {
-  scroll-margin-top: 90px;
-}
-
-section,
-.hero,
-#services,
-#case-studies,
-#careers,
-#about,
-#contact {
-   scroll-margin-top: 80px;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-offset);
 }
 
 .logo a {
@@ -1898,6 +1879,10 @@ nav ul.nav-links a.nav-highlight:hover {
 }
 
 @media (max-width: 768px) {
+  :root {
+    --header-offset: 74px;
+  }
+
   nav {
     position: relative;
   }
