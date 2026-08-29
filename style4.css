@@ -525,7 +525,7 @@ footer {
 }
 
 .svc-detail-card {
-  min-height: 215px;
+  min-height: 0;
 }
 
 .info-card {
