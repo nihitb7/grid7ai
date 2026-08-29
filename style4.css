@@ -226,6 +226,14 @@ section,
 
 .stat-callout strong { color: #111827; }
 
+.stat-callout-source {
+  text-align: center;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: #9ca3af;
+  margin: 6px 0 0;
+}
+
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
