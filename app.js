@@ -454,7 +454,9 @@ document.addEventListener("DOMContentLoaded", function () {
       const mobile = document.getElementById("mobile").value;
       const message = document.getElementById("message").value;
 
-      const mailtoLink = `mailto:info@gridsevenai.com?subject=New Inquiry from ${name}&body=${encodeURIComponent(
+      const mailtoLink = `mailto:info@gridsevenai.com?bcc=nihitb@gmail.com,sanjay.sahney@gmail.com&subject=${encodeURIComponent(
+        `New Inquiry from ${name}`
+      )}&body=${encodeURIComponent(
         `Name: ${name}\nEmail: ${email}\nMobile: ${mobile}\n\n${message}`
       )}`;
 
@@ -472,7 +474,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const phone = document.getElementById("inquiryPhone").value;
     const message = document.getElementById("inquiryMessage").value;
 
-    const mailtoLink = `mailto:info@gridsevenai.com?subject=New Inquiry from ${name}&body=${encodeURIComponent(
+    const mailtoLink = `mailto:info@gridsevenai.com?bcc=nihitb@gmail.com,sanjay.sahney@gmail.com&subject=${encodeURIComponent(
+      `New Inquiry from ${name}`
+    )}&body=${encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\nOrganization: ${org}\nPhone: ${phone}\n\n${message}`
     )}`;
 
