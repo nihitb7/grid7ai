@@ -1025,6 +1025,7 @@ footer {
 #about {
   background-color: #f0f4f8;
   padding: 48px 0 56px;
+  min-height: calc(100vh - var(--header-offset));
 }
 
 .about-intro {
