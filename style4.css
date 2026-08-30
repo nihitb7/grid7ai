@@ -465,15 +465,6 @@ html {
   color: var(--text-dark);
 }
 
-#services,
-#careers,
-#about,
-#contact,
-footer {
-  content-visibility: auto;
-  contain-intrinsic-size: 900px;
-}
-
 .section h2 {
   font-size: var(--fs-section-title);
   margin-bottom: 1rem;
