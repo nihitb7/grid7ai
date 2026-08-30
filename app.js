@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function startHeroRotation() {
     if (heroIntervalId !== null) return;
-    heroIntervalId = setInterval(changeHeroContent, 5000);
+    heroIntervalId = setInterval(changeHeroContent, 3500);
   }
 
   function stopHeroRotation() {
